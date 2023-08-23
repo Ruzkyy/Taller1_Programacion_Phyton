@@ -1,23 +1,16 @@
-import datetime
+from time import localtime
+t = localtime()
+dia = t.tm_mday
+mes = t.tm_mon
+anno = t.tm_year
+print("ingrese su fecha de nacimiento")
+dianaci = int(input("Dia:"))
+mesnaci = int(input("mes:"))
+annonaci = int(input("año:"))
+if (mesnaci, dianaci) < (mes, dia):
+    edad = anno - annonaci
+else:
+    edad = anno - annonaci - 1
+print("usted tiene "+ str(edad) + " años")
 
-# Obtener la fecha actual
-fecha_actual = datetime.datetime.now()
 
-# Solicitar la fecha de nacimiento al usuario en formato 'YYYY-MM-DD'
-fecha_nacimiento = input("Ingresa tu fecha de nacimiento (YYYY-MM-DD): ")
-
-# Convertir la fecha de nacimiento a objeto datetime
-fecha_nacimiento = datetime.datetime.strptime(fecha_nacimiento, '%Y-%m-%d')
-
-# Obtener el año de nacimiento y el año actual
-anio_nacimiento = fecha_nacimiento.year
-anio_actual = fecha_actual.year
-
-# Calcular la edad
-edad = anio_actual - anio_nacimiento
-
-# Verificar si el cumpleaños ya pasó en este año
-if (fecha_actual.month, fecha_actual.day) < (fecha_nacimiento.month, fecha_nacimiento.day):
-    edad -= 1
-
-print(f"Tienes {edad} años.")
